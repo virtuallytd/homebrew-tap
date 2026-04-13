@@ -5,21 +5,21 @@
 class ClaudeCodeSwitcher < Formula
   desc "CLI tool for switching between Claude Code profiles"
   homepage "https://github.com/virtuallytd/claude-code-switcher"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.1/claude-code-switcher_0.1.1_darwin_amd64.tar.gz"
-      sha256 "21effdbb83c49b77fd6287c9666109e5f4f9c94fba57d472e9f60ce866561e8e"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.2/claude-code-switcher_0.1.2_darwin_amd64.tar.gz"
+      sha256 "d07f045efa6d59522587b7c9a4689117388741edd6c7e3c24128d1c260c7a51e"
 
       define_method(:install) do
         bin.install "ccs"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.1/claude-code-switcher_0.1.1_darwin_arm64.tar.gz"
-      sha256 "f675f1b2ca1f961a4ecc301d4b33204c26e30454f03fe0e7c26695fdcda23135"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.2/claude-code-switcher_0.1.2_darwin_arm64.tar.gz"
+      sha256 "1e494413d365cc76692c1c93fe140883c2370265003812bea64fa19d469de4b3"
 
       define_method(:install) do
         bin.install "ccs"
@@ -29,15 +29,15 @@ class ClaudeCodeSwitcher < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.1/claude-code-switcher_0.1.1_linux_amd64.tar.gz"
-      sha256 "865dfa4a9039e3e57d24582889fc916fe6801c0e7daf6d3af9fb12ec97c7bf9c"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.2/claude-code-switcher_0.1.2_linux_amd64.tar.gz"
+      sha256 "2f4b8aa80a04e7df83923dd404a99e1705f08f80e7238e5176de50bea33aef62"
       define_method(:install) do
         bin.install "ccs"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.1/claude-code-switcher_0.1.1_linux_arm64.tar.gz"
-      sha256 "e97b0864bc07fbd931b48bb0a79eec8c795cd04a01d37bd276b5ff25c5fc7a51"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.1.2/claude-code-switcher_0.1.2_linux_arm64.tar.gz"
+      sha256 "da4683633dfb36c8f93f3a2340e5aa906ed1465313dc2e20e02901c8b99aef2c"
       define_method(:install) do
         bin.install "ccs"
       end
