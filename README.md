@@ -6,44 +6,38 @@ This is a [Homebrew](https://brew.sh/) tap for tools by virtuallytd.
 
 ### ccs - Claude Code Switcher
 
-A CLI tool for quickly switching between Claude Code profiles with different MCP server configurations and authentication methods.
+A CLI tool for running Claude Code in isolated Podman containers with separate profiles for different authentication methods (Vertex AI, API key) and MCP server configurations.
 
 **Installation:**
 ```bash
 brew install virtuallytd/tap/claude-code-switcher
 ```
 
-**Setup Shell Integration:**
+**Prerequisites:**
+- [Podman](https://podman.io/) (`brew install podman`)
+- A running Podman machine (`podman machine init && podman machine start`)
 
-After installing, add this function to your `~/.zshrc` or `~/.bashrc`:
-
+**Quick Start:**
 ```bash
-ccs() {
-  if [[ $# -eq 0 ]] || [[ "$1" == "switch" ]] || [[ "$1" == "reload" ]]; then
-    eval "$(command ccs "$@")"
-  else
-    command ccs "$@"
-  fi
-}
-```
+# Build the container image
+ccs build
 
-Then reload your shell:
-```bash
-source ~/.zshrc  # or source ~/.bashrc
-```
+# Create a profile
+ccs init work
 
-**Verify Installation:**
-```bash
-ccs version
+# Launch Claude Code with a profile
+ccs work ~/Projects/my-repo
 ```
 
 **Usage:**
 ```bash
-ccs              # Interactive profile switcher
-ccs reload       # Reload current profile
-ccs current      # Show active profile
-ccs save <name>  # Save session token for profile
-ccs help         # Show help
+ccs <profile> [path]              # Launch Claude Code with the given profile
+ccs init <name>                   # Create a new profile interactively
+ccs build                         # Build/rebuild the container image
+ccs profiles                      # List available profiles
+ccs status                        # Show running containers
+ccs stop [profile]                # Stop running container(s)
+ccs --version                     # Show version
 ```
 
 **Documentation:** https://github.com/virtuallytd/claude-code-switcher
@@ -52,14 +46,12 @@ ccs help         # Show help
 
 ### One-Time Install
 
-To install a formula from this tap:
 ```bash
-brew install virtuallytd/tap/<formula>
+brew install virtuallytd/tap/claude-code-switcher
 ```
 
 ### Tap First, Then Install
 
-Alternatively, you can add the tap first and then install as if the formulae were in the main repository:
 ```bash
 brew tap virtuallytd/tap
 brew install claude-code-switcher
@@ -67,12 +59,6 @@ brew install claude-code-switcher
 
 ### Upgrade
 
-To upgrade a formula:
-```bash
-brew upgrade virtuallytd/tap/claude-code-switcher
-```
-
-Or if you've tapped the repository:
 ```bash
 brew upgrade claude-code-switcher
 ```
@@ -81,7 +67,7 @@ brew upgrade claude-code-switcher
 
 | Formula | Description | Homepage |
 |---------|-------------|----------|
-| `claude-code-switcher` | CLI tool for switching between Claude Code profiles | [GitHub](https://github.com/virtuallytd/claude-code-switcher) |
+| `claude-code-switcher` | CLI tool for running Claude Code with isolated Podman profiles | [GitHub](https://github.com/virtuallytd/claude-code-switcher) |
 
 ## About
 
