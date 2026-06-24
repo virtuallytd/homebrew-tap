@@ -13,22 +13,22 @@ class ClaudeCodeSwitcher < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.4.0/claude-code-switcher_0.4.0_darwin_amd64.tar.gz"
-      sha256 "2f565bf5f1f7cc0abcfc7e0c3e3dae8cf59ab31215ddf4e4195c6cb2d2c6bf6c"
+      sha256 "08f33404e980402214ec31a4a84bc0d63097f075c2ed9c6bc8c0311eac9fd070"
 
       define_method(:install) do
         bin.install "ccs"
-        prefix.install "Containerfile"
-        prefix.install "entrypoint.sh"
+        (prefix/"container").install "container/Containerfile"
+        (prefix/"container").install "container/entrypoint.sh"
       end
     end
     if Hardware::CPU.arm?
       url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.4.0/claude-code-switcher_0.4.0_darwin_arm64.tar.gz"
-      sha256 "22c755da243f126dbfa4a8ebb63cb44c90294509fe48219f9607073db2098f19"
+      sha256 "e496d97d5c939397d96a3715f9a4b3266496c3d6e9b2f6e6f32920e23ec59130"
 
       define_method(:install) do
         bin.install "ccs"
-        prefix.install "Containerfile"
-        prefix.install "entrypoint.sh"
+        (prefix/"container").install "container/Containerfile"
+        (prefix/"container").install "container/entrypoint.sh"
       end
     end
   end
@@ -36,20 +36,20 @@ class ClaudeCodeSwitcher < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.4.0/claude-code-switcher_0.4.0_linux_amd64.tar.gz"
-      sha256 "d1871104109c0f01ef4acde6d5a235bad447a2746ab9dba2788cf04be656b95c"
+      sha256 "1202d55866197bd731226603bdc5522d47948fe5fcc64215a559fc870d39e453"
       define_method(:install) do
         bin.install "ccs"
-        prefix.install "Containerfile"
-        prefix.install "entrypoint.sh"
+        (prefix/"container").install "container/Containerfile"
+        (prefix/"container").install "container/entrypoint.sh"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.4.0/claude-code-switcher_0.4.0_linux_arm64.tar.gz"
-      sha256 "1433d50e5aca098f7764698a94669b61fd5d8013c191b43263409ccd1f197111"
+      sha256 "f230a29914417b11b8019aded7c3f47c8563a7f22f1d6e6d652643d7671a5626"
       define_method(:install) do
         bin.install "ccs"
-        prefix.install "Containerfile"
-        prefix.install "entrypoint.sh"
+        (prefix/"container").install "container/Containerfile"
+        (prefix/"container").install "container/entrypoint.sh"
       end
     end
   end
