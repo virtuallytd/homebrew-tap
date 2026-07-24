@@ -5,15 +5,15 @@
 class ClaudeCodeSwitcher < Formula
   desc "CLI tool for running Claude Code with isolated Podman profiles"
   homepage "https://github.com/virtuallytd/claude-code-switcher"
-  version "0.9.3"
+  version "0.9.4"
   license "MIT"
 
   depends_on "podman"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.3/claude-code-switcher_0.9.3_darwin_amd64.tar.gz"
-      sha256 "9c91c28dd2c02e9649a885e2c48fd1f44488c1d52a80932507542e495920d4e4"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.4/claude-code-switcher_0.9.4_darwin_amd64.tar.gz"
+      sha256 "84a3d999c8f1f07c879cd5df109626c2cf8031b788875f7d773843485c8e98f6"
 
       define_method(:install) do
         bin.install "ccs"
@@ -22,8 +22,8 @@ class ClaudeCodeSwitcher < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.3/claude-code-switcher_0.9.3_darwin_arm64.tar.gz"
-      sha256 "e503a21138014bf1667603f9d4ba39dcbef8ff76b5bec4f1f2ea06177ba192fc"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.4/claude-code-switcher_0.9.4_darwin_arm64.tar.gz"
+      sha256 "de2aff72a722e19741cf52207272df7edb728b57803a4901ee84548180c5a2da"
 
       define_method(:install) do
         bin.install "ccs"
@@ -35,8 +35,8 @@ class ClaudeCodeSwitcher < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.3/claude-code-switcher_0.9.3_linux_amd64.tar.gz"
-      sha256 "803f2da6d51407207b37d02e0d3d6b901dd25484f36102f0c0203deca696407a"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.4/claude-code-switcher_0.9.4_linux_amd64.tar.gz"
+      sha256 "70e68893c7b66d4e96eb26e64dcd23a570a32f162d2b3e8eb29af9598f6cfd63"
       define_method(:install) do
         bin.install "ccs"
         (prefix/"container").install "container/Containerfile"
@@ -44,8 +44,8 @@ class ClaudeCodeSwitcher < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.3/claude-code-switcher_0.9.3_linux_arm64.tar.gz"
-      sha256 "1f6d34ab3d2ca6b2020f0c9dc928d7cc7547cc1393d5ac8790e556d412470332"
+      url "https://github.com/virtuallytd/claude-code-switcher/releases/download/v0.9.4/claude-code-switcher_0.9.4_linux_arm64.tar.gz"
+      sha256 "59b9b5c2d40e23cc9de311e5f54e7f45adfa5f5e6fd85964547f40f5b9f10f35"
       define_method(:install) do
         bin.install "ccs"
         (prefix/"container").install "container/Containerfile"
